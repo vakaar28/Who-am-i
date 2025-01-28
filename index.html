@@ -7,61 +7,63 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f9f9;
-            color: #333;
-            text-align: center;
+            background-color: #f0f8ff;
             margin: 0;
             padding: 0;
+            text-align: center;
+            overflow: hidden;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            font-size: 2rem;
+        h1 {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            margin-top: 20px;
+            animation: glow 2s infinite;
         }
-        .banner {
-            margin: 20px 0;
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50; }
+            50% { text-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50; }
+            100% { text-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50; }
         }
-        .banner img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .moon {
+            width: 150px;
+            height: 150px;
+            background: #f9f9f9;
+            border-radius: 50%;
+            box-shadow: 0 0 30px #fff;
+            margin: 20px auto;
+            animation: rotate 10s infinite linear;
         }
-        .message {
-            font-size: 1.2rem;
-            margin: 20px;
-            padding: 15px;
-            background-color: #f7f7f7;
-            border: 1px solid #ddd;
-            border-radius: 10px;
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .stars {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <header>
-        Eid Milad-un-Nabi Mubarak!
-    </header>
-
-    <div class="banner">
-        <img src="https://via.placeholder.com/800x400?text=Eid+Milad-un-Nabi+Celebration" alt="Eid Milad-un-Nabi Celebration">
-    </div>
-
-    <div class="message">
-        <p>May the blessings of Prophet Muhammad (PBUH) bring peace, love, and prosperity to your life. Celebrate this special occasion with prayers and gratitude.</p>
-    </div>
-
-    <footer>
-        &copy; 2025 - Eid Milad-un-Nabi Celebration
-    </footer>
+    <h1>Eid Milad-un-Nabi Mubarak!</h1>
+    <div class="moon"></div>
+    <!-- Random stars -->
+    <script>
+        for (let i = 0; i < 100; i++) {
+            let star = document.createElement("div");
+            star.className = "stars";
+            star.style.left = Math.random() * window.innerWidth + "px";
+            star.style.top = Math.random() * window.innerHeight + "px";
+            star.style.animationDelay = Math.random() * 2 + "s";
+            document.body.appendChild(star);
+        }
+    </script>
 </body>
 </html>
-
